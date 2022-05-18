@@ -17,10 +17,6 @@ Route::get('/', function () {
     return view('umum.home');
 });
 
-Route::get('/admin', function () {
-    return view('admin.dashboard');
-});
-
 Route::get('/destinasi', function () {
     return view('umum.destinasi');
 });
@@ -31,4 +27,14 @@ Route::get('/about', function () {
 
 Route::get('/kontak', function () {
     return view('umum.kontak');
+});
+
+Route::get('login', [App\Http\Controllers\LoginController::class, 'index'])->name('login');
+Route::post('/postlogin', [App\Http\Controllers\LoginController::class, 'postlogin'])->name('postlogin');
+Route::get('/logout', [App\Http\Controllers\LoginController::class, 'logout'])->name('logout');
+
+Route::group(['middleware' => ['auth','ceklevel:admin,pengurus']], function() {
+    Route::get('/admin', function () {
+        return view('admin.dashboard');
+    });
 });

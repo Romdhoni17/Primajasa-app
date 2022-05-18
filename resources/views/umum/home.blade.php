@@ -78,7 +78,7 @@
         <i class="bi bi-list mobile-nav-toggle"></i>
       </nav><!-- .navbar -->
 
-      <a href="/booking" class="get-started-btn scrollto">Booking</a>
+      <a href="/login" class="get-started-btn scrollto">Booking</a>
 
     </div>
   </header><!-- End Header -->
